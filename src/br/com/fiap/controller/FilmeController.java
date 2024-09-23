@@ -62,31 +62,29 @@ public class FilmeController {
     }
 
 
-    /* public String listarTodosFilmes() throws ClassNotFoundException, SQLException
-    {
-        String resultado;
+    public String listarTodosFilmes() throws ClassNotFoundException, SQLException {
         Connection con = ConnectionFactory.abrirConexao();
 
-        //Filme filme = new Filme();
         FilmeDAO filmeDAO = new FilmeDAO(con);
-        ArrayList<Filme> resultado2 = filmeDAO.listarTodos();
-        if (resultado2 != null){
-            for (Filme filme : resultado2){
-                System.out.println("ID: " + filme.getCodigo());
-                System.out.println("Título: " + filme.getTitulo());
-                System.out.println("Genero: " + filme.getGenero());
-                System.out.println("Produtora: " + filme.getProdutora());
+        ArrayList<Filme> catalogo = filmeDAO.listarTodos();
+        String resultado = "";
+
+        if (catalogo.size() > 0) {
+            for (Filme filme : catalogo) {
+                resultado += "ID: " + filme.getCodigo() +
+                        "\nTítulo: " + filme.getTitulo() +
+                        "\nGênero: " + filme.getGenero() +
+                        "\nProdutora: " + filme.getProdutora() +
+                        "\n\n";
             }
         }
+        else {
+            resultado = "Nenhum filme encontrado.";
+        }
 
-        //resultado = resultado2;
+
         ConnectionFactory.fecharConexao(con);
-
         return resultado;
     }
-
-    */
-
-
 
 }

@@ -46,8 +46,8 @@ public class FilmeDAO {
         try (PreparedStatement ps = getCon().prepareStatement(sql);) {
             ps.setString(1, filme.getTitulo());
             ps.setString(2, filme.getGenero());
-            ps.setString(2, filme.getProdutora());
-            ps.setInt(3, filme.getCodigo());
+            ps.setString(3, filme.getProdutora());
+            ps.setInt(4, filme.getCodigo());
             if (ps.executeUpdate() > 0) {
                 return "Alterado com sucesso.";
             } else {
@@ -74,7 +74,7 @@ public class FilmeDAO {
     }
 
     public ArrayList<Filme> listarTodos(){
-        String sql = "select * from ddd_carro order by placa";
+        String sql = "select * from ddd_filme order by codigo";
         ArrayList<Filme> listaFilme = new ArrayList<Filme>();
 
         // try-with-resources
