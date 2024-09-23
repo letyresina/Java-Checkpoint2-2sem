@@ -1,3 +1,8 @@
+// João Pedro Oliveira Chambrone - RM 97857
+// Vitor Hugo Gonçalves Rodrigues - RM 97758
+// Gabriel Machado - RM 99880
+// Leticia Resina - RM 98069
+
 package br.com.fiap.model.dao;
 
 import br.com.fiap.model.dto.Filme;
