@@ -69,7 +69,7 @@ public class FilmeController {
         ArrayList<Filme> catalogo = filmeDAO.listarTodos();
         String resultado = "";
 
-        if (catalogo != null) {
+        if (catalogo.size() > 0) {
             for (Filme filme : catalogo) {
                 resultado += "ID: " + filme.getCodigo() +
                         "\nTítulo: " + filme.getTitulo() +
@@ -77,9 +77,11 @@ public class FilmeController {
                         "\nProdutora: " + filme.getProdutora() +
                         "\n\n";
             }
-        } else {
+        }
+        else {
             resultado = "Nenhum filme encontrado.";
         }
+
 
         ConnectionFactory.fecharConexao(con);
         return resultado;
